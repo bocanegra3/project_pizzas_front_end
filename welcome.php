@@ -26,7 +26,7 @@
       function deleteProduct(cod){
         bootbox.confirm("Desea eliminar el producto" + cod ,function(result){
           if(result){
-            window.location="delete.php?q="+cod;
+            window.location="delete.php?q="+ cod;
           }
         });        
       }
@@ -47,7 +47,8 @@ else{
 ?>
 <br>
 <br>
-<a href="inser_products.php" class="btn btn-primary">Ingresar Producto</a>
+<a href="insert_products.php" class="btn btn-primary">Ingresar Producto</a>
+<br>
 <br>
 <?php
 
