@@ -30,6 +30,9 @@
           }
         });        
       }
+      function updateProduct(cod){
+        window.location ="edit.php?q="+ cod;
+      }
       </script>
 </head>
 <body>
@@ -48,6 +51,8 @@ else{
 <br>
 <br>
 <a href="insert_products.php" class="btn btn-primary">Ingresar Producto</a>
+
+<a href="insert_category.php" class="btn btn-primary">Ingresar Categoria</a>
 <br>
 <br>
 <?php
@@ -71,6 +76,7 @@ $table= "<table class='table table-bordered table-striped'>
       <th>Actualizar</th>
                           </tr>
                                 </thead> <tbody>" ;
+                                //select count(*), c.category_name from products p inner JOIN categories c on p.id_category=c.id_category GROUP BY category_name;
       echo $table;
 foreach($data as $row)
   {
@@ -103,14 +109,20 @@ foreach($data as $row)
   }
   echo "</tbody>";
   echo "</table>";
-  ?>
+  $stmt=$link->query("select count(*) from products;");
+  $rows=$stmt->fetchColumn();  
 
+echo "<div class='font-weight-bold'>";
+echo "<p>Cantidad de Productos: ". $rows ."</p>";
 
+echo "</div>";
+?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
 
 <?php
  echo "<a href= 'logout.php' >Logout</a>";
-
+ echo "<br>";
+ echo "<a href= 'index.php' >Regresar a la pagina</a>";
 ?>
